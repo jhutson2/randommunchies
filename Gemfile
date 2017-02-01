@@ -27,6 +27,8 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -62,3 +64,9 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'spoonacular', '~> 0.0.2'
+
+gem 'unirest', '~> 1.1', '>= 1.1.2'
+
+gem 'httparty'

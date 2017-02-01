@@ -1,0 +1,20 @@
+.page-header
+  = link_to recipes_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_recipe_path(@recipe), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show recipe
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @recipe.name
+  %dt Meat:
+  %dd= @recipe.meat
+  %dt Vegetables:
+  %dd= @recipe.vegetables
+  %dt Seaoning:
+  %dd= @recipe.seaoning
+  %dt Instrucions:
+  %dd= @recipe.instrucions

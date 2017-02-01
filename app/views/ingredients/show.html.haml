@@ -1,0 +1,22 @@
+.page-header
+  = link_to ingredients_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_ingredient_path(@ingredient), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show ingredient
+
+%dl.dl-horizontal
+  %dt Meat:
+  %dd= @ingredient.meat
+  %dt Vegetable:
+  %dd= @ingredient.vegetable
+  %dt Seasoning:
+  %dd= @ingredient.seasoning
+  %dt Grain:
+  %dd= @ingredient.grain
+  %dt Fruit:
+  %dd= @ingredient.fruit
+  %dt Recipe reference:
+  %dd= @ingredient.recipe_reference

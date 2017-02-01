@@ -1,3 +1,5 @@
+%link{:href => "https://fonts.googleapis.com/css?family=Pacifico", :rel => "stylesheet"}/
+
 !!!
 %html
   %head
@@ -25,12 +27,23 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "#", class: "navbar-brand" do
-            Randommunchies
+          = link_to recipes_path, class: "navbar-brand" do
+            Random Munchies
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
-              = link_to "Home", "#"
+            = link_to recipes_path, class: "navbar-brand" do
+              Home
+            = link_to new_recipe_path, class: "navbar-brand" do
+              Got a Recipe?
+          %ul.nav.navbar-nav.navbar-right
+            - if current_user
+              Welcome
+              = succeed "!" do
+                %strong= current_user.name
+              = link_to "Sign out", signout_path, id: "sign_out"
+            - else
+              = link_to 'Sign in with Facebook', auth_path(provider: 'facebook')
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

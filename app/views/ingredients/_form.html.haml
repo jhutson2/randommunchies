@@ -1,0 +1,39 @@
+= form_for @ingredient, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @ingredient.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@ingredient.errors.count, "error")} prohibited this ingredient from being saved:"
+
+      %ul
+        - @ingredient.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :meat, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :meat, class: 'form-control'
+  .form-group
+    = f.label :vegetable, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :vegetable, class: 'form-control'
+  .form-group
+    = f.label :seasoning, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :seasoning, class: 'form-control'
+  .form-group
+    = f.label :grain, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :grain, class: 'form-control'
+  .form-group
+    = f.label :fruit, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :fruit, class: 'form-control'
+  .form-group
+    = f.label :recipe_reference, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :recipe_reference, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meat: MyString
+  vegetable: MyString
+  seasoning: MyString
+  grain: MyString
+  fruit: MyString
+  recipe_reference: MyString
+
+two:
+  meat: MyString
+  vegetable: MyString
+  seasoning: MyString
+  grain: MyString
+  fruit: MyString
+  recipe_reference: MyString

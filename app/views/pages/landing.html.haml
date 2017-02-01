@@ -1,0 +1,315 @@
+!!!
+/[if IE 8] <html lang="en" class="ie8">
+/ [if !IE]><!
+%html{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %title burger html5 landing page
+    / Mobile Specific Meta
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    / Stylesheets
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/flaticon.css", :rel => "stylesheet"}/
+    / Animate
+    %link{:href => "css/animate.css", :rel => "stylesheet"}/
+    / Bootsnav
+    %link{:href => "css/bootsnav.css", :rel => "stylesheet"}/
+    / Color style
+    %link{:href => "css/color.css", :rel => "stylesheet"}/
+    / Custom stylesheet
+    %link{:href => "css/custom.css", :rel => "stylesheet"}/
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  %body{"data-offset" => "100", "data-spy" => "scroll", "data-target" => "#navbar-menu"}
+    / Preloader
+    #loading
+      #loading-center
+        #loading-center-absolute
+          #object_one.object
+          #object_two.object
+          #object_three.object
+          #object_four.object
+          #object_five.object
+          #object_six.object
+          #object_seven.object
+          #object_eight.object
+          #object_big.object
+    / End Preloader
+    / Navbar
+    %nav.navbar.navbar-default.bootsnav.no-background.navbar-fixed.black
+      .container
+        / Start Atribute Navigation
+        .attr-nav
+          %ul
+            %li.side-menu
+              %a{:href => "#"}
+                %i.fa.fa-bars
+        / End Atribute Navigation
+        / Start Header Navigation
+        .navbar-header
+          %a.navbar-brand{:href => "#"}
+            %img.logo{:alt => "", :src => "images/logo.png"}/
+        / End Header Navigation
+      / Start Side Menu
+      .side
+        %a.close-side{:href => "#"}
+          %i.fa.fa-times
+        .widget
+          %h6.title Menu
+          %ul.link
+            %li
+              %a{:href => "#"} About
+            %li
+              %a{:href => "#"} Services
+            %li
+              %a{:href => "#"} Blog
+            %li
+              %a{:href => "#"} Portfolio
+            %li
+              %a{:href => "#"} Contact
+      / End Side Menu
+    / Header
+    %header#hello
+      / Container
+      .container
+        .row
+          .col-md-8.col-md-offset-2
+            .banner
+              %h3 -introducing-
+              %h1 FATTY BURGER
+              .inner_banner
+                .banner_content
+                  %p A double layer of sear-sizzled 100% pure beef mingled with special sauce on a sesame seed bun and topped with melty American cheese, crisp lettuce, minced onions and tangy pickles.
+                  %p *Based on pre-cooked patty weight.
+                .stamp
+                  %img{:alt => "", :src => "images/stamp.png"}/
+      / Container end
+      %p.caption *Limited Time Only
+    / Header end
+    / Block Content
+    %section#block
+      .container
+        / First section
+        .row
+          .col-sm-8
+            .feature
+              .shack_burger
+                .chicken
+                  %img{:alt => "Chicken", :src => "images/chicken.png"}/
+                %h2 Shack Burger
+                %p Black Angus beef patty topped with American cheese, tomato, lettuce, and “Shack Sauce,” served in a grilled potato bun
+              %p.caption *Limited Time Only
+          .col-sm-4
+            .signature
+              .shape
+                %span.flaticon.flaticon-burger
+                %p signature
+              .signature_content
+                %p It used to be a Secret but not any more! Our tribute to the King is a Cheddar Beef Patty,
+        / first section end
+        / Second section
+        .row
+          .col-md-6
+            .classic
+              %a.classic_btn{:href => ""} classic
+              .overlay
+                %h3 House-ground hamburger
+                %p (served in a grilled rosemary focaccia).
+                %p.overlay_content Instead of traditional cucumber pickles, legendary chef-owner Judy Rodgers accents her burgers with thin-cut zucchini strips pickled in apple cider vinegar, mustard seeds and turmeric.
+          .col-md-6
+            / Carousel
+            #small_carousel.carousel.slide{"data-ride" => "carousel"}
+              / Indicators
+              %ol.carousel-indicators
+                %li.active{"data-slide-to" => "0", "data-target" => "#small_carousel"}
+                %li{"data-slide-to" => "1", "data-target" => "#small_carousel"}
+                %li{"data-slide-to" => "2", "data-target" => "#small_carousel"}
+              .carousel-caption
+                %h3 The Original Burger
+                %hr/
+                %ul.list-unstyled.nutrition
+                  %li
+                    %a{:href => ""}
+                      %span.flaticon.flaticon-protein
+                      %p Protein - 33g
+                  %li
+                    %a{:href => ""}
+                      %span.flaticon.flaticon-carbohydrate
+                      %p Carbohydrates - 46gm
+                  %li
+                    %a{:href => ""}
+                      %span.flaticon.flaticon-calories
+                      %p Calories - 750 kcal
+                .info_btn_shadow
+                  %a.info_btn{:href => ""} info &amp; nutrition
+              / carousel inner
+              .carousel-inner{:role => "listbox"}
+                .item.active
+                  %img{:alt => "", :src => "images/small_slider_bg.jpg"}/
+                .item
+                  %img{:alt => "", :src => "images/small_slider_bg.jpg"}/
+                .item
+                  %img{:alt => "", :src => "images/small_slider_bg.jpg"}/
+              / carousel inner end
+            / Carousel end
+        / second section end
+        / Third section
+        / Carousel
+        #carousel.carousel.slide{"data-ride" => "carousel"}
+          / Indicators
+          %ol.carousel-indicators
+            %li.active{"data-slide-to" => "0", "data-target" => "#carousel"}
+            %li{"data-slide-to" => "1", "data-target" => "#carousel"}
+            %li{"data-slide-to" => "2", "data-target" => "#carousel"}
+          / carousel inner
+          .carousel-inner{:role => "listbox"}
+            .item.active
+              %img{:alt => "Burger", :src => "images/large_slider_img.jpg"}/
+              .carousel-caption
+                %h2 Cheddar JUnky
+                %h3 Stuffed Burgers
+                %p Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.
+                .info_btn_shadow
+                  %a.info_btn{:href => ""} info &amp; nutrition
+            .item
+              %img{:alt => "Burger", :src => "images/large_slider_img.jpg"}/
+              .carousel-caption
+                %h2 Cheddar JUnky
+                %h3 Stuffed Burgers
+                %p Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.
+                .info_btn_shadow
+                  %a.info_btn{:href => ""} info &amp; nutrition
+            .item
+              %img{:alt => "Burger", :src => "images/large_slider_img.jpg"}/
+              .carousel-caption
+                %h2 Cheddar JUnky
+                %h3 Stuffed Burgers
+                %p Chef Wesley Genovart makes this over-the-top, Shake Shack–inspired burger with two thin stacked patties, thick-cut bacon, kimchi and a spicy homemade sauce.
+                .info_btn_shadow
+                  %a.info_btn{:href => ""} info &amp; nutrition
+          / carousel inner end
+        / Carousel end
+        / Forth section
+        .row.forth_sec
+          .col-sm-4
+            .menu
+              .inner_content
+                %span.flaticon.flaticon-burger
+                %h2 menu
+          .col-sm-4
+            .drinks
+              .inner_content
+                %span.flaticon.flaticon-drink
+                %h2 drinks
+          .col-sm-4
+            .sides
+              .inner_content
+                %span.flaticon.flaticon-food
+                %h2 sides
+        / forth section end
+    / Block Content end
+    / Lock
+    %section#lock
+      %h2 SERVING MORE THAN JUST BURGERS SINCE 1998
+      %p Check out our opening hours and location address below.
+    / Map
+    #ourmaps
+    / Footer
+    %footer
+      / Container
+      .container
+        .row
+          .col-lg-3.col-sm-4.col-xs-12.col-lg-offset-1.pull-right
+            .subscribe
+              %h4 Subscribe now
+              %p
+                Subscribe to the newsletter and
+                get some crispy stuff every week.
+              %form{:role => "form"}
+                .form-group
+                  .input-group
+                    %input#em.form-control{:placeholder => "Enter your e-mail here", :type => "email"}/
+                    %span.input-group-btn
+                      %button.btn.send_btn{:type => "submit"}
+                        %i.glyphicon.glyphicon-send
+          .col-lg-3.col-sm-4.col-xs-12.col-lg-offset-1.pull-right
+            .contact_us
+              %h4 Contact Us
+              %a{:href => ""} info@junkyburget.com
+              %address
+                Jalan Awan Hijau, Taman OUG
+                %br/
+                58200 Kuala Lumpur
+                %br/
+                Malaysia
+                %br/
+          .col-lg-4.col-sm-4.col-xs-12.pull-right
+            .basic_info
+              %a{:href => ""}
+                %img.footer_logo{:alt => "Burger", :src => "images/footer_logo.png"}/
+              %ul.list-inline.social
+                %li
+                  %a.fa.fa-facebook{:href => ""}
+                %li
+                  %a.fa.fa-twitter{:href => ""}
+                %li
+                  %a.fa.fa-instagram{:href => ""}
+              .footer-copyright
+                %p.wow.fadeInRight{"data-wow-duration" => "1s"}
+                  Made with
+                  %i.fa.fa-heart
+                  by
+                  %a{:href => "http://bootstrapthemes.co", :target => "_blank"} Bootstrap Themes
+                  %br/
+                  2016. All Rights Reserved
+      / Container end
+    / Footer end
+    / scroll up
+    .scrollup
+      %a{:href => "#"}
+        %i.fa.fa-chevron-up
+    /
+      End off scroll up->
+
+      <!-- JavaScript
+    %script{:src => "http://code.jquery.com/jquery-1.12.1.min.js"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"}
+    / Bootsnav js
+    %script{:src => "js/bootsnav.js"}
+    / JS Implementing Plugins
+    %script{:src => "http://maps.google.com/maps/api/js?sensor=true"}
+    %script{:src => "js/gmaps.min.js"}
+    :javascript
+      var map;
+      $(document).ready(function () {
+          map = new GMaps({
+              el: '#ourmaps',
+              lat: 3.139003,
+              lng: 101.686855,
+              scrollwheel: false
+          });
+
+          //locations request
+          map.getElevations({
+              locations: [[3.139003, 101.686855]],
+              callback: function (result, status) {
+                  if (status == google.maps.ElevationStatus.OK) {
+                      for (var i in result) {
+                          map.addMarker({
+                              lat: result[i].location.lat(),
+                              lng: result[i].location.lng(),
+                              infoWindow: {
+                                  content: '<address class="tooltip_address"><b>Junky Burger</b><br />Jalan Awan Hijau, Taman OUG<br />58200 Kuala Lumpur <br />Malaysia <br /></address>'
+                              }
+                          });
+                      }
+                  }
+              }
+          });
+
+      });
+    / main js
+    %script{:src => "js/main.js", :type => "text/javascript"}
