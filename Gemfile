@@ -68,5 +68,3 @@ end
 gem 'spoonacular', '~> 0.0.2'
 
 gem 'unirest', '~> 1.1', '>= 1.1.2'
-
-gem 'httparty'

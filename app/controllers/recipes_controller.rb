@@ -1,7 +1,17 @@
 class RecipesController < ApplicationController
   # GET /recipes
   def index
-    @recipes = Recipe.all
+    if params[:search]
+      ingredients = params[:search].split(",")
+
+      api = Spoonacular::API.new(ENV["SPOONACULAR_KEY"])
+      results = api.find_by_ingredients(ingredients)
+
+      @recipes = results.body.map { |hash| ApiRecipe.new(hash) }
+      @recipes += Recipe.all  # make this part a real serach...
+    else
+      @recipes = Recipe.all
+    end
   end
 
   # GET /recipes/1
@@ -28,26 +38,6 @@ class RecipesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def initialize(key)
-    @key ||= key
-  end
-
-  def find_by_ingredients(ingredients, options={})
-    method = "/recipes/findByIngredients"
-    query = "ingredients=#{ingredients.querify}&#{options.querify}"
-    uri = Spoonacular.build_endpoint(method, query)
-    response = Spoonacular.get({key: @key, uri: uri, accept_json: true})
-    return response
-  end
-
-  def search_recipes(options={})
-    method = "/recipes/search"
-    query = "#{options.querify}"
-    uri = Spoonacular.build_endpoint(method, query)
-    response = Spoonacular.get({key: @key, uri: uri})
-    return response
   end
 
   # PATCH/PUT /recipes/1
