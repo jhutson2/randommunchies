@@ -6,11 +6,8 @@ class RecipesController < ApplicationController
     if params[:search]
       ingredients = params[:search].split(",")
 
-      api = Spoonacular::API.new(ENV["SPOONACULAR_KEY"])
-      results = api.find_by_ingredients(ingredients)
-
-      @recipes = results.body.map { |hash| ApiRecipe.new(hash) }
-
+      @recipes = ApiRecipe.search(ingredients)
+      Rails.logger.info ["COUNT", @recipes.size]
     else
       @recipes = Recipe.all
     end
