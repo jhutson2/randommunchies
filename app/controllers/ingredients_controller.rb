@@ -1,5 +1,7 @@
 class IngredientsController < ApplicationController
   # GET /ingredients
+   before_action :authenticate!, except: [:index, :show]
+
   def index
     @ingredients = Ingredient.all
   end

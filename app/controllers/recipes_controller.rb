@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   # GET /recipes
+  before_action :authenticate!, except: [:index, :show]
+
   def index
     if params[:search]
       ingredients = params[:search].split(",")
@@ -8,7 +10,7 @@ class RecipesController < ApplicationController
       results = api.find_by_ingredients(ingredients)
 
       @recipes = results.body.map { |hash| ApiRecipe.new(hash) }
-      @recipes += Recipe.all  # make this part a real serach...
+
     else
       @recipes = Recipe.all
     end

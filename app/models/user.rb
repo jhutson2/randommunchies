@@ -1,12 +1,14 @@
 class User < ApplicationRecord
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
-    end
+  # Factory method to create a user from some omniauth data
+  # Omniauth will use this to build a *NEW* user for us
+  def self.from_omniauth(authentication_data)
+    user = User.where(provider: authentication_data['provider'],
+                      uid: authentication_data['uid']).first_or_create
+    Rails.logger.debug "The user is #{user.inspect}"
+    user.name         = authentication_data.info.name
+    user.oauth_token = authentication_data.info.oauth_token
+    user.save!
+    Rails.logger.debug "After saving, the user is #{user.inspect}"
+    return user
   end
 end

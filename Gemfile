@@ -59,6 +59,7 @@ gem 'jquery-ui-rails'
 gem 'haml-rails'
 group :development do
   gem 'dotenv-rails'
+  gem 'awesome_print'
 end
 
 group :production do

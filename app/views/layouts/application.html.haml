@@ -37,13 +37,15 @@
               Got a Recipe?
           %ul.nav.navbar-nav.navbar-right
             - if current_user
-              Welcome
-              = succeed "!" do
-                %strong= current_user.name
-              = link_to "Sign out", signout_path, id: "sign_out"
-            - else
-              = link_to 'Sign in with Facebook', auth_path(provider: 'facebook')
-          
+              %li
+                %p.navbar-text
+                  = current_user.name
+            %li
+              - if current_user
+                = link_to "Sign out", logout_path, id: "sign_out"
+              - else
+                = link_to "Sign in", login_path
+
 
     .container
       - flash.each do |name, msg|

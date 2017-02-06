@@ -1,0 +1,29 @@
+
+.text-body-logo {
+  color: red;
+  font-family: 'Lobster', cursive;
+  margin-top: 80px;
+  font-size: 3em;
+  text-align: left;
+}
+
+.social-login-button {
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.55em 0.3em;
+  clear: both;
+  text-align: center;
+  margin: 0.5em 0.1em;
+}
+
+.facebook-button {
+  background-color: #3a589a;
+
+  &:hover {
+  background-color: rgba(#3a589a, 0.8);
+  }
+}
