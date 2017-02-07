@@ -6,7 +6,16 @@ class RecipesController < ApplicationController
     if params[:search]
       ingredients = params[:search].split(",")
 
-      @recipes = ApiRecipe.search(ingredients)
+      @recipes = ApiRecipe.search(ingredients).to_a
+
+      ingredients.each do |ingredient|
+        match = "%#{ingredient}%"
+
+        @recipes.concat(Recipe.where("name ilike ?", match))
+        %w{meat vegetable seasoning grain fruit}.each do |kind|
+          @recipes.concat(Recipe.joins(:ingredients).where("ingredients.#{kind} ilike ?", match))
+        end
+      end
       Rails.logger.info ["COUNT", @recipes.size]
     else
       @recipes = Recipe.all
@@ -34,7 +43,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to @recipe, notice: 'Recipe was successfully created.'
+      redirect_to new_recipe_ingredient_path(@recipe)
     else
       render :new
     end

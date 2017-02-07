@@ -2,31 +2,24 @@ class IngredientsController < ApplicationController
   # GET /ingredients
    before_action :authenticate!, except: [:index, :show]
 
-  def index
-    @ingredients = Ingredient.all
-  end
-
-  # GET /ingredients/1
-  def show
-    @ingredient = Ingredient.find(params[:id])
-    @ingredient.recipes
-  end
-
   # GET /ingredients/new
   def new
-    @ingredient = Ingredient.new
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.new
   end
 
   # GET /ingredients/1/edit
   def edit
-    @ingredient = Ingredient.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.find(params[:id])
   end
 
   # POST /ingredients
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.new(ingredient_params)
     if @ingredient.save
-      redirect_to @ingredient, notice: 'Ingredient was successfully created.'
+      redirect_to @recipe
     else
       render :new
     end
@@ -34,9 +27,11 @@ class IngredientsController < ApplicationController
 
   # PATCH/PUT /ingredients/1
   def update
-    @ingredient = Ingredient.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.find(params[:id])
+
     if @ingredient.update(ingredient_params)
-      redirect_to @ingredient, notice: 'Ingredient was successfully updated.'
+      redirect_to @recipe, notice: 'Ingredient was successfully updated.'
     else
       render :edit
     end
@@ -44,9 +39,11 @@ class IngredientsController < ApplicationController
 
   # DELETE /ingredients/1
   def destroy
-    @ingredient = Ingredient.find(params[:id])
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = @recipe.ingredients.find(params[:id])
     @ingredient.destroy
-    redirect_to ingredients_url, notice: 'Ingredient was successfully destroyed.'
+
+    redirect_to @recipe
   end
 
   private

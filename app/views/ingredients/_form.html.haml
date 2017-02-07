@@ -1,4 +1,4 @@
-= form_for @ingredient, html: { class: "form-horizontal", role: "form" } do |f|
+= form_for [@recipe, @ingredient], html: { class: "form-horizontal", role: "form" } do |f|
   -if @ingredient.errors.any?
     .alert.alert-danger.alert-dismissable{role: "alert"}
       %button.close{type: "button", data: {dismiss: "alert"} }
@@ -31,9 +31,5 @@
     .col-sm-10
       = f.text_field :fruit, class: 'form-control'
   .form-group
-    = f.label :recipe_reference, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :recipe_reference, class: 'form-control'
-  .form-group
     .col-sm-offset-2.col-sm-10
-      = f.submit class: 'btn btn-primary'
+      = f.submit class: 'btn btn-primary', value: "Done"

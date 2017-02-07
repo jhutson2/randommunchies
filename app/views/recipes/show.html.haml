@@ -1,8 +1,25 @@
-.page-header
 %dl.dl-horizontal
   %dt name
   %dd= @recipe.name
   %dt instructions
   %dd= @recipe.instructions
-  %dt ingredients
-  %dd= @recipe.ingredients
+
+%ul.list-group
+  - @recipe.ingredients.each do |ingredient|
+    %li.list-group_item
+      = ingredient.meat
+      = ingredient.vegetable
+      = ingredient.seasoning
+      = ingredient.fruit
+      = ingredient.grain
+      = link_to edit_recipe_ingredient_path(@recipe, ingredient) do
+        Edit
+
+
+.page-header
+  = link_to new_recipe_ingredient_path(@recipe), class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Add Ingredient
+  = link_to recipes_path, class: "btn btn-default" do
+    %span.glyphicon.glyphicon-list-alt
+    Back to Recipes
