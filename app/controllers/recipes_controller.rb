@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe.ingredients
   end
 
   # GET /recipes/new

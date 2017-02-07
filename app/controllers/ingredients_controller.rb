@@ -9,6 +9,7 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   def show
     @ingredient = Ingredient.find(params[:id])
+    @ingredient.recipes
   end
 
   # GET /ingredients/new
@@ -24,7 +25,6 @@ class IngredientsController < ApplicationController
   # POST /ingredients
   def create
     @ingredient = Ingredient.new(ingredient_params)
-
     if @ingredient.save
       redirect_to @ingredient, notice: 'Ingredient was successfully created.'
     else

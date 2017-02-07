@@ -1,19 +1,8 @@
 .page-header
-%p= api_recipe.id
-%p= api_recipe.title
-%p= image_tag(api_recipe.image)
-%p= api_recipe.likes
-
-%panel.panel-default
-  .panel-heading
-    Ingredients Needed
-  %ul.list-group
-    - api_recipe.ingredients.each do |ingredient|
-      %li.list-group-item= ingredient
-
-%panel.panel-default
-  .panel-heading
-    Instructions
-  %ul.list-group
-    - api_recipe.instructions.each do |instruction|
-      %li.list-group-item= instruction
+%dl.dl-horizontal
+  %dt name
+  %dd= @recipe.name
+  %dt instructions
+  %dd= @recipe.instructions
+  %dt ingredients
+  %dd= @recipe.ingredients

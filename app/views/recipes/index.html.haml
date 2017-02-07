@@ -1,15 +1,13 @@
-.container
-  .jumbotron
-    .form-group
-      Enter Ingredients!
-      = form_tag(recipes_path, :method => "get", id: "search-form") do
-        = text_field_tag :search, params[:search], placeholder: "chicken,rice,etc..."
-        = submit_tag "Search"
-      - if @recipes.present?
-        = render @recipes
-      - else
-        %p
-          Could not find recipe!
+.form-group
+  Enter Ingredients!
+  = form_tag(recipes_path, :method => "get", id: "search-form") do
+    = text_field_tag :search, params[:search], placeholder: "chicken,rice,etc..."
+    = submit_tag "Search"
+  - if @recipes.present?
+    = render @recipes
+  - else
+    %p
+      Could not find recipe!
 
 
 
