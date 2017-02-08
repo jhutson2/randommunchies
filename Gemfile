@@ -67,3 +67,6 @@ group :production do
 end
 
 gem "spoonacular", github: "tiy-tpa-ruby/spoonacular"
+
+gem "refile", github: "gstark/refile", branch: "updates-for-rails-5", require: "refile/rails"
+gem "refile-postgres"

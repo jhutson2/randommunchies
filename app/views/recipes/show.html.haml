@@ -8,14 +8,14 @@
   .panel-heading
   %ul.list-group
     - @recipe.ingredients.each do |ingredient|
-      %li.list-group_item
+      %li.list-group-item
         = ingredient.meat
         = ingredient.vegetable
         = ingredient.seasoning
         = ingredient.fruit
         = ingredient.grain
-        = link_to edit_recipe_ingredient_path(@recipe, ingredient) do
-          Edit
+        -# = link_to edit_recipe_ingredient_path(@recipe, ingredient) do
+        -#   Edit
 
 
 .page-header
