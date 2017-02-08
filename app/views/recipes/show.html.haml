@@ -4,16 +4,18 @@
   %dt instructions
   %dd= @recipe.instructions
 
-%ul.list-group
-  - @recipe.ingredients.each do |ingredient|
-    %li.list-group_item
-      = ingredient.meat
-      = ingredient.vegetable
-      = ingredient.seasoning
-      = ingredient.fruit
-      = ingredient.grain
-      = link_to edit_recipe_ingredient_path(@recipe, ingredient) do
-        Edit
+%panel.panel-info
+  .panel-heading
+  %ul.list-group
+    - @recipe.ingredients.each do |ingredient|
+      %li.list-group_item
+        = ingredient.meat
+        = ingredient.vegetable
+        = ingredient.seasoning
+        = ingredient.fruit
+        = ingredient.grain
+        = link_to edit_recipe_ingredient_path(@recipe, ingredient) do
+          Edit
 
 
 .page-header

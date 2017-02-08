@@ -1,20 +1,18 @@
-.logo-image {
-  background-image: image-url("logo1.paint");
-  width: 100%;
-  background-size: cover;
-  overflow: hidden;
-  position: center;
-}
-
-.text-body-logo {
-  color: red;
-  font-family: 'Lobster', cursive;
-  margin-top: 80px;
-  font-size: 3em;
+.search-engine {
   text-align: center;
 }
-.body {
-    background-image: url("logo1.paint");
-    background-repeat: no-repeat;
-    background-position: center;
+.index-recipes-each{
+  background-image: image('food.png');
+  background-repeat: repeat;
+}
+.index-ingredient-seach-text {
+  color: rgb(190, 219, 57);
+  font-family: 'Anton', sans-serif;
+  margin-top: 80px;
+  font-size: 6em;
+  font-weight: bold;
+  text-align: center;
+}
+.caption{
+  padding-top: 50px
 }
