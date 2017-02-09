@@ -1,12 +1,12 @@
-.header
+.header-index
 .container.index-recipes-each
   .search-engine
     %p.index-ingredient-seach-text Enter Ingredients
     = form_tag(recipes_path, :method => "get", id: "search-form") do
-      = text_field_tag :search, params[:search], placeholder: "chicken,rice,etc..."
+      = text_field_tag :search, params[:search], placeholder: "chicken,rice,etc...", size: 20
       = submit_tag "Search"
     - if @recipes.present?
       = render @recipes
     - else
-      %p
+      %p.no-recipe-text
         Could not find recipe!

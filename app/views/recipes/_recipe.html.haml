@@ -1,6 +1,6 @@
-.col-sm-4.col-sm-4.col-sm-4
+.col-sm-4
   .thumbnail
-    -# = image_tag((api_recipe.image), style: "height: 200px")
+    = image_tag(attachment_url(recipe, :recipe_image), style: "height: 200px")
     .caption
       %h4
         = link_to recipe.name, recipe

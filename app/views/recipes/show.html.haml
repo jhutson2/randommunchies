@@ -1,11 +1,9 @@
-%dl.dl-horizontal
-  %dt name
-  %dd= @recipe.name
-  %dt instructions
-  %dd= @recipe.instructions
-
+.header
+  %p= @recipe.name
+  %p= image_tag(attachment_url(@recipe, :recipe_image), style: "height: 200px")
 %panel.panel-info
-  .panel-heading
+  .panel-heading-text
+    Ingredients
   %ul.list-group
     - @recipe.ingredients.each do |ingredient|
       %li.list-group-item
@@ -16,7 +14,12 @@
         = ingredient.grain
         -# = link_to edit_recipe_ingredient_path(@recipe, ingredient) do
         -#   Edit
-
+%panel.panel-info
+  .panel-heading-text
+    Instructions
+  %ul.list-group
+    %li.list-group-item
+      %p= @recipe.instructions
 
 .page-header
   = link_to new_recipe_ingredient_path(@recipe), class: 'btn btn-default' do

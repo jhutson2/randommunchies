@@ -21,7 +21,7 @@ class ApiRecipe
     api = Spoonacular::API.new(ENV["SPOONACULAR_KEY"])
     results = api.find_by_ingredients(ingredients)
 
-    results.body.map { |hash| ApiRecipe.new(hash) }
+    JSON.parse(results.body).map { |hash| ApiRecipe.new(hash) }
   end
 
   def self.to_partial_path
@@ -41,11 +41,11 @@ class ApiRecipe
     uri = Spoonacular.build_endpoint(method, "")
     response = Spoonacular.get({key: ENV["SPOONACULAR_KEY"], uri: uri})
 
-    ApiRecipe.new(response.body)
+    ApiRecipe.new(JSON.parse(response.body))
   end
 
   def recipe_information
-    @recipe_information ||= Spoonacular::API.new(ENV["SPOONACULAR_KEY"]).get_recipe_information(@id).body
+    @recipe_information ||= JSON.parse(Spoonacular::API.new(ENV["SPOONACULAR_KEY"]).get_recipe_information(@id).body)
   end
 
   def instructions
