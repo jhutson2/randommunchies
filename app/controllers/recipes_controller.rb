@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
         %w{meat vegetable seasoning grain fruit}.each do |kind|
           @recipes.concat(Recipe.joins(:ingredients).where("ingredients.#{kind} ilike ?", match))
         end
+        @recipes.uniq!
       end
       Rails.logger.info ["COUNT", @recipes.size]
     else
