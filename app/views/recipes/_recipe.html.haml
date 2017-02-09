@@ -1,6 +1,9 @@
 .col-sm-4
   .thumbnail
-    = image_tag(attachment_url(recipe, :recipe_image), style: "height: 200px")
+    - if recipe.recipe_image
+      = image_tag(attachment_url(recipe, :recipe_image), style: "height: 200px")
+    - else
+      = image_tag("default.jpg")
     .caption
       %h4
         = link_to recipe.name, recipe
