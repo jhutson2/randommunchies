@@ -19,5 +19,9 @@
     .col-sm-10
       = f.text_area :instructions, class: 'form-control'
   .form-group
+    = f.label :recipe_image, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.attachment_field :recipe_image
+  .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit class: 'btn btn-primary'
