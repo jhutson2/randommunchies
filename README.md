@@ -1,24 +1,36 @@
-# README
+Tryout the app: https://randommunchies.herokuapp.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Purpose
 
-Things you may want to cover:
+Creating a forum for families in Polk County, FL to share resources that help them raise and care for children with autism spectrum disorder.
 
-* Ruby version
+Features
 
-* System dependencies
+User should be able to sign up with Facebook.
+User should be able to search for recipes based on ingredients entered and also create recipes and add a photo to the recipe created.
 
-* Configuration
+How
 
-* Database creation
+Controllers
 
-* Database initialization
+Recipe
+ApiRecipe
+Ingredients
+users
+session (omniauth)
 
-* How to run the test suite
+Models
 
-* Services (job queues, cache servers, search engines, etc.)
+ApiRecipe
+Ingredient
+Recipe
+User
 
-* Deployment instructions
+Gems/APIs
 
-* ...
+Spoonacular
+Refile
+Omniauth
+Omniauth-facebook
+
+Result
