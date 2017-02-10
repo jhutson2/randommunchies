@@ -32,5 +32,3 @@ Spoonacular
 Refile
 Omniauth
 Omniauth-facebook
-
-Result
